@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Lqueue/Lqueue.vcxproj" Id="5824d5d3-b1de-4ecb-8b96-8130fd8f1012" />
+</Solution>
