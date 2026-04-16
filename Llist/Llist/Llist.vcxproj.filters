@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\MATERIALE LEZIONI-20260318\Lqueue\lqueue.h">
+    <ClInclude Include="..\..\MATERIALE LEZIONI-20260318\Llist\link.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\MATERIALE LEZIONI-20260318\Lqueue\LQueueTest.h">
+    <ClInclude Include="..\..\MATERIALE LEZIONI-20260318\Llist\llist.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\MATERIALE LEZIONI-20260318\Lqueue\Lqueuemain.cpp">
+    <ClCompile Include="..\..\MATERIALE LEZIONI-20260318\Llist\Llistmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

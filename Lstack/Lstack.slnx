@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Lqueue/Lqueue.vcxproj" />
+  <Project Path="Lstack/Lstack.vcxproj" Id="1053bb2d-ce5c-4de6-8116-94d8fd76d856" />
 </Solution>

@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{e3713874-cf01-4d9c-80ee-14528d23cf07}</ProjectGuid>
-    <RootNamespace>liste</RootNamespace>
+    <ProjectGuid>{1053bb2d-ce5c-4de6-8116-94d8fd76d856}</ProjectGuid>
+    <RootNamespace>Lstack</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Alist;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\manue\Desktop\Uni\C++\MATERIALE LEZIONI-20260318\Llist;C:\Users\manue\Desktop\Uni\C++\MATERIALE LEZIONI-20260318\Astack;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -130,11 +130,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\MATERIALE LEZIONI-20260313\Llist\link.h" />
-    <ClInclude Include="..\..\MATERIALE LEZIONI-20260313\Llist\llist.h" />
+    <ClInclude Include="..\..\MATERIALE LEZIONI-20260318\Lstack\lstack.h" />
+    <ClInclude Include="..\..\MATERIALE LEZIONI-20260318\Lstack\LStackTest.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\MATERIALE LEZIONI-20260313\Llist\Llistmain.cpp" />
+    <ClCompile Include="..\..\MATERIALE LEZIONI-20260318\Lstack\Lstackmain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

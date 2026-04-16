@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{37755124-000d-49f3-b4d3-93ddde735d88}</ProjectGuid>
-    <RootNamespace>Lqueue</RootNamespace>
+    <ProjectGuid>{8b106438-9c18-4f39-bde3-078fb84a30fd}</ProjectGuid>
+    <RootNamespace>Llist</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\manue\Desktop\Uni\C++\MATERIALE LEZIONI-20260318\Llist;C:\Users\manue\Desktop\Uni\C++\MATERIALE LEZIONI-20260318\Aqueue;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\manue\Desktop\Uni\C++\MATERIALE LEZIONI-20260318\Alist;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -130,11 +130,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\MATERIALE LEZIONI-20260318\Lqueue\lqueue.h" />
-    <ClInclude Include="..\..\MATERIALE LEZIONI-20260318\Lqueue\LQueueTest.h" />
+    <ClInclude Include="..\..\MATERIALE LEZIONI-20260318\Llist\link.h" />
+    <ClInclude Include="..\..\MATERIALE LEZIONI-20260318\Llist\llist.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\MATERIALE LEZIONI-20260318\Lqueue\Lqueuemain.cpp" />
+    <ClCompile Include="..\..\MATERIALE LEZIONI-20260318\Llist\Llistmain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
