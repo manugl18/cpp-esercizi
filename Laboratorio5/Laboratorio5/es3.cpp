@@ -1,6 +1,4 @@
-//Scrivere una funzione template template <typename E> void Reverse(LStack<E>& S)
-//per invertire una pila(stack) sfruttando la funzione di copia di una pila vista a lezione
-//LstackTransfer(LStack<E>& S1, LStack<E>& S2)
+
 #include <iostream>
 #include <cstdlib>
 

@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Aqueue;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Lqueue;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Llist;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Astack;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Lstack;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Alist;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Aqueue;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Lqueue;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Llist;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Astack;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Lstack;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -139,7 +139,12 @@
     <ClCompile Include="es2.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="es3.cpp" />
+    <ClCompile Include="es3.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="es4.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
