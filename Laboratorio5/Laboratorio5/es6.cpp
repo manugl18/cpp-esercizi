@@ -41,6 +41,7 @@ int main() {
 			}
 			coda.enqueue(Item(valore));
 		}
+		// questo controllo serve poiche se ho un numero dispari di elementi, l'elemento non coinvolto deve essere sempre in fondo alla coda.
 		if (l % 2 != 0) {
 			Item it1 = coda.dequeue();
 			coda.enqueue(it1);

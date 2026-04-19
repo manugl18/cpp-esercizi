@@ -21,11 +21,13 @@
     <ClCompile Include="es2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Downloads\Es4.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Downloads\Esercitazione-laboratorio4.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="laboratorio4_es2_listTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
