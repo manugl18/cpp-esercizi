@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="simulazione_parziale2/simulazione_parziale2.vcxproj" />
+</Solution>
