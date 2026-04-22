@@ -41,7 +41,7 @@ public:
 
 inline ostream& operator<<(ostream& s, const Item& i)
 {
-	return s << i.getNome() << " " << i.getCognome() << " " << i.getNumBiglietto() << " ";
+	return s << i.getNome() << " " << i.getCognome() << " " << i.getNumBiglietto() << " " << "\n";
 }
 
 inline void Assert(bool val, string s) {
@@ -90,7 +90,7 @@ public:
 
 inline ostream& operator<<(ostream& s, const Premio& i)
 {
-	return s << i.getPremio() << " " << i.getEuro();
+	return s << i.getPremio() << " " << i.getEuro() << " \n";
 }
 
 template <typename E>
