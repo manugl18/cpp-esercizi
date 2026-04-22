@@ -6,7 +6,7 @@
 using namespace std;
 
 #include "list.h"
-
+#include "lstack.h"
 class Item {
 private:
 	int num_biglietto;
@@ -77,13 +77,36 @@ private:
 	string premio;
 	float euro;
 public:
-	//ctor
-	Premio(string premio = " ", float euro)
+	Premio(string premio = "", float euro = 0)
 	{
-
+		this->premio = premio;
+		this->euro = euro;
 	}
+
+	string getPremio()const { return this->premio; }
+	float getEuro()const { return this->euro; }
+
 };
 
+inline ostream& operator<<(ostream& s, const Premio& i)
+{
+	return s << i.getPremio() << " " << i.getEuro();
+}
 
+template <typename E>
+void Lstackprint(LStack<E>& S) {
+	LStack<E> Stemp;
+	while (S.length() > 0)
+	{
+		E popped = S.pop();
+		cout << popped << " ";
+		Stemp.push(popped);
+	}
+	while (Stemp.length() > 0)
+	{
+		E popped = Stemp.pop();
+		S.push(popped);
+	}
+}
 
 

@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Llist;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Alist;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Lstack;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Astack;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Llist;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Alist;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

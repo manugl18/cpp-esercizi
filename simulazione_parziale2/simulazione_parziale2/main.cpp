@@ -4,6 +4,7 @@
 #include <sstream>
 #include "fileTest.h"
 #include "llist.h"
+
 using namespace std;
 
 void bubble(LList<Item>& lista)
@@ -32,7 +33,7 @@ void bubble(LList<Item>& lista)
 }
 
 int main() {
-
+	int k;
 	LList<Item> biglietti;
 	string nome, cognome;
 	int num_biglietto;
@@ -51,6 +52,41 @@ int main() {
 	}
 	bubble(biglietti);
 	lprint(biglietti);
+
+	cout << "Inserisci una dimensione K <= 7; ";
+	cin >> k;
+
+	if (k > 7) {
+		return 1;
+	}
+	Premio* premi = new Premio[k];
+	int i = 0;
+	ifstream myfile2("premi.txt");
+	string premio;
+	float euro;
+
+	if (myfile2.is_open()) {
+		while (myfile2 >> premio >> euro) {
+			if (i > k) break;
+			premi[i] = Premio(premio, euro / 100);
+			cout << premi[i++];
+
+		}
+		myfile2.close();
+	}
+	
+
+	Premio temp = premi[0];
+	premi[0] = premi[k - 1];
+	premi[k - 1] = temp;
+	
+	LStack<Premio> stack;
+
+	for (int i = k-1; i >= 0; i--) {
+		stack.push(premi[i]);
+	}
+	Lstackprint(stack);
+	delete[] premi;
 
 	return 0;
 }

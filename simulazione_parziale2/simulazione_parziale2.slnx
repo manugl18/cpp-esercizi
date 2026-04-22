@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="simulazione_parziale2/simulazione_parziale2.vcxproj" />
+  <Project Path="simulazione_parziale2/simulazione_parziale2.vcxproj" Id="79b32294-e8be-4b57-8965-4d617b848214" />
 </Solution>
