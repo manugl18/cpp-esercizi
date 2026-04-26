@@ -35,6 +35,8 @@ void bubble(LList<Item>& lista)
 }
 
 int main() {
+
+	//------PARTE 1---------
 	int k;
 	LList<Item> biglietti;
 	string nome, cognome;
@@ -55,6 +57,8 @@ int main() {
 	bubble(biglietti);
 	lprint(biglietti);
 
+
+	//-----------PARTE 2-----------
 	cout << "Inserisci una dimensione K <= 7: ";
 	cin >> k;
 
@@ -78,6 +82,7 @@ int main() {
 	}
 
 
+	//----------PARTE 3-----------
 	Premio temp = premi[0];
 	premi[0] = premi[k - 1];
 	premi[k - 1] = temp;
@@ -90,7 +95,9 @@ int main() {
 	Lstackprint(stack);
 	cout << "SOMMA TOTALE PREMI: " << somma_premi << "\n";
 
+	delete[] premi;
 
+	//----------PARTE 4-----------
 	bool inserito = true;
 	LList <Item>appoggio;
 	srand(time(0));
