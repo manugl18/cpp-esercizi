@@ -11,16 +11,16 @@ using namespace std;
 // class Node
 template <typename E> class Node {
 public:
-  E data;      // Value for this node
-  Node* lChildptr;
-  Node* rChildptr;
-  // Constructors<
-  Node(E dataNew)
-    { 
-       data = dataNew;
-       lChildptr = NULL;
-       rChildptr = NULL;
-    }
+	E data;      // Value for this node
+	Node* lChildptr; //figlio sinistro
+	Node* rChildptr; // figlio destro
+	// Constructors<
+	Node(E dataNew)
+	{
+		data = dataNew;
+		lChildptr = NULL;
+		rChildptr = NULL;
+	}
 };
 
 template<class T>
@@ -28,126 +28,128 @@ class BinaryTree
 {
 
 private:
-    Node<T>* root; 
+	Node<T>* root; // puntatore al nodo radice dell'albero
 
-	// inserimento di un elemento nell'albero binario
-    void Insert(T newData, Node<T>* &theRoot)
-        {
-            if(theRoot == NULL)
-            {
-                theRoot = new Node<T>(newData);
-                return;
-            }
+	// inserimento di un elemento nell'albero binario (funzione ricorsiva)
+	// visto che la funzione è ricorsiva, Node<T>*& theRoot (riferimento al puntatore) puo diventare un nodo interno.
+	void Insert(T newData, Node<T>*& theRoot)
+	{
+		if (theRoot == NULL)
+		{
+			theRoot = new Node<T>(newData);
+			return;
+		}
 
-            if(newData < theRoot->data)
-                Insert(newData, theRoot->lChildptr);
-            else
-                Insert(newData, theRoot->rChildptr);
-        }
+		// se il dato da inserire è minore rispetto al dato nella radice, lo inserisce nel sottoalbero sinistro.
+		if (newData < theRoot->data)
+			Insert(newData, theRoot->lChildptr);
+		else
+			Insert(newData, theRoot->rChildptr);
+	}
 
 	// attraversamento con stampa dell'albero 
 	// permutando le righe si ottengono attraversamenti pre-order, post-order, in-order
-    void traverse(Node<T>* theRoot)
-        {
-            if(theRoot != NULL)
-            {
-                traverse(theRoot->lChildptr);
-                traverse(theRoot->rChildptr);
-				cout<< theRoot->data<<" "; 
-            }
-        }
+	void traverse(Node<T>* theRoot)
+	{
+		if (theRoot != NULL)
+		{
+			traverse(theRoot->lChildptr);
+			traverse(theRoot->rChildptr);
+			cout << theRoot->data << " ";
+		}
+	}
 
 	// attraversamento pre-order non ricorsivo
 	void traverse_preorder_NR(Node<T>* theRoot)
-     { 
-	  LStack<Node<T>*> s;
-      s.push(theRoot);
-      while (s.length()!=0)
-      {
-        theRoot = s.pop();
-		cout<< theRoot->data<<" ";
-        if (theRoot->rChildptr != NULL) s.push(theRoot->rChildptr);
-        if (theRoot->lChildptr != NULL) s.push(theRoot->lChildptr);
-      }
-     }
+	{
+		LStack<Node<T>*> s;
+		s.push(theRoot);
+		while (s.length() != 0)
+		{
+			theRoot = s.pop();
+			cout << theRoot->data << " ";
+			if (theRoot->rChildptr != NULL) s.push(theRoot->rChildptr);
+			if (theRoot->lChildptr != NULL) s.push(theRoot->lChildptr);
+		}
+	}
 
 	// attraversamento level-order (chiamato anche in ampiezza)
 	void traverse_levelorder_NR(Node<T>* theRoot)
-     { 
-      LQueue<Node<T>*> q;
-      q.enqueue(theRoot);
-      while (q.length()!=0)
-      {
-        theRoot = q.dequeue();
-		cout<< theRoot->data<<" ";
-        if (theRoot->lChildptr != NULL) q.enqueue(theRoot->lChildptr);
-        if (theRoot->rChildptr != NULL) q.enqueue(theRoot->rChildptr);
-      }
-     }
-
-     // conta il numero di elementi nell'albero binario
-     int count_elements(Node<T>* h)
-        {
-          if (h == NULL) return 0;
-          return count_elements(h->lChildptr) + count_elements(h->rChildptr) + 1;
-        }
-
-	 // restituisce l'altezza dell'albero
-	 int tree_height(Node<T>* h)
-        {
-         if (h == NULL) return -1;
-         int u = tree_height(h->lChildptr), v = tree_height(h->rChildptr);
-         if (u > v) return u+1; else return v+1;
-        }
-
-	 Node<T>* max(T a[], int l, int r)
+	{
+		LQueue<Node<T>*> q;
+		q.enqueue(theRoot);
+		while (q.length() != 0)
 		{
-		 int m = (l+r)/2;
-         Node<T>* x = new Node<T>(a[m]);
-         if (l == r) return x;
-         x->lChildptr = max(a, l, m);
-         x->rChildptr = max(a, m+1, r);
-         int u = x->lChildptr->data.key(), v = x->rChildptr->data.key();
-         if (u > v)
-           x->data = u; else x->data = v;
-         return x;
+			theRoot = q.dequeue();
+			cout << theRoot->data << " ";
+			if (theRoot->lChildptr != NULL) q.enqueue(theRoot->lChildptr);
+			if (theRoot->rChildptr != NULL) q.enqueue(theRoot->rChildptr);
 		}
+	}
 
-    public:
-        BinaryTree()
-        {
-            root = NULL;
-        }
+	// conta il numero di elementi nell'albero binario
+	int count_elements(Node<T>* h)
+	{
+		if (h == NULL) return 0;
+		return count_elements(h->lChildptr) + count_elements(h->rChildptr) + 1;
+	}
 
-        void AddItem(T newData)
-        {
-            Insert(newData, root);
-        }
+	// restituisce l'altezza dell'albero
+	int tree_height(Node<T>* h)
+	{
+		if (h == NULL) return -1;
+		int u = tree_height(h->lChildptr), v = tree_height(h->rChildptr);
+		if (u > v) return u + 1; else return v + 1;
+	}
 
-        void traverse()
-        {
-            traverse(root);
-			//traverse_preorder_NR(root);
-			//traverse_levelorder_NR(root);
-        }
+	Node<T>* max(T a[], int l, int r)
+	{
+		int m = (l + r) / 2;
+		Node<T>* x = new Node<T>(a[m]);
+		if (l == r) return x;
+		x->lChildptr = max(a, l, m);
+		x->rChildptr = max(a, m + 1, r);
+		int u = x->lChildptr->data.key(), v = x->rChildptr->data.key();
+		if (u > v)
+			x->data = u; else x->data = v;
+		return x;
+	}
 
-		int count()
-        {
-          return count_elements(root);
-        }
+public:
+	BinaryTree()
+	{
+		root = NULL;
+	}
 
-        
-        int height()
-        {
-          return tree_height(root);
-        }
+	void AddItem(T newData)
+	{
+		Insert(newData, root);
+	}
 
-		
-        void createTournament(T a[], int l, int r)
-        { 
-		 root = max(a, l, r);
-        }
-	   
-  };
+	void traverse()
+	{
+		traverse(root);
+		//traverse_preorder_NR(root);
+		//traverse_levelorder_NR(root);
+	}
+
+	int count()
+	{
+		return count_elements(root);
+	}
+
+
+	int height()
+	{
+		return tree_height(root);
+	}
+
+
+	void createTournament(T a[], int l, int r)
+	{
+		root = max(a, l, r);
+	}
+
+};
 
 #endif
