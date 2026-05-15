@@ -17,7 +17,7 @@ private:
 	float info;
 public:
 	Key keyval;
-	Item() // ogno volta che creo un item se non passo parametri lo inizializza con chiave nulla (da fare)
+	Item() // ogni volta che creo un item se non passo parametri lo inizializza con chiave nulla (da fare)
 	{
 		keyval = maxKey;
 	}

@@ -4,17 +4,18 @@
 #include "bst-es5.h"
 #include <time.h>  // Used by timing functions
 
-int main(int argc, char *argv[])
-  { 
+int main(int argc, char* argv[])
+{
 	srand(time(NULL));
 	int N, maxN = atoi(argv[1]), sw = atoi(argv[2]);
-    BST<Item, Key> bst;
-    for (N = 0; N < maxN; N++)
-      { Item v; 
-        if (sw) v.random_element(); else if (!v.scan()) break;
-        if (!(bst.search(v.key())).null()) continue;
-        bst.insert(v); 
-      }
+	BST<Item, Key> bst;
+	for (N = 0; N < maxN; N++)
+	{
+		Item v;
+		if (sw) v.random_element(); else if (!v.scan()) break;
+		if (!(bst.search(v.key())).null()) continue;
+		bst.insert(v);
+	}
 	cout << endl;  bst.show(cout); cout << endl;
 
 	int somma = bst.sum();
@@ -31,4 +32,4 @@ int main(int argc, char *argv[])
 	}
 	else
 		cout << "albero vuoto" << endl;
-  }
+}

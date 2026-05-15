@@ -115,9 +115,9 @@ private:
 		return x;
 	}
 	bool equal_structure(Node<T>* theRootA, Node<T>* theRootB) {
-		if (theRootA == NULL && theRootA == NULL) return true;
+		if (theRootA == NULL && theRootB == NULL) return true;
 		else if (theRootA == NULL || theRootB == NULL) return false;
-		else equal_structure(theRootA->lChildptr, theRootB->lChildptr) && equal_structure(theRootA->rChildptr, theRootB->rChildptr);
+		else  return equal_structure(theRootA->lChildptr, theRootB->lChildptr) && equal_structure(theRootA->rChildptr, theRootB->rChildptr);
 	}
 
 

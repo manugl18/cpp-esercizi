@@ -75,13 +75,13 @@ private:
 		else { insert_rootR(h->r, x); rotL(h); }
 	}
 
-	// restituisce il k-mo elemento con chiave minore dell'albero
+	// restituisce il k-mo elemento con chiave minore dell'albero. K = 0 -> elemento con chiave piu piccola, k = 1 -> secondo elemento con chiave piu piccola ...
 	Item selectR(link h, int k)
 	{
 		if (h == 0) return nullItem;
 		int t = tree_size(h->l);
 		if (t > k) return selectR(h->l, k);
-		if (t < k) return selectR(h->r, k - t - 1);
+		if (t < k) return selectR(h->r, k - t - 1); //-t → togli i nodi a sinistra; -1 → togli la radice
 		return h->item;
 	}
 

@@ -32,54 +32,54 @@ ostream& operator<<(ostream& s, const Item& i)
   { return s << i.key(); }
   */
 
-// Assert: If "val" is false, print a message and terminate
-// the program
+  // Assert: If "val" is false, print a message and terminate
+  // the program
 inline void Assert(bool val, string s) {
-  if (!val) { // Assertion failed -- close the program
-    cout << "Assertion Failed: " << s << endl;
-    exit(-1);
-  }
+	if (!val) { // Assertion failed -- close the program
+		cout << "Assertion Failed: " << s << endl;
+		exit(-1);
+	}
 }
 
 // Print out the list (including showing position for the fence)
 // Print list contents
 template <typename E>
 void lprint(List<E>& L) {
-  int currpos = L.currPos();
+	int currpos = L.currPos();
 
-  L.moveToStart();
+	L.moveToStart();
 
-  cout << "< ";
-  int i;
-  for (i=0; i<currpos; i++) {
-    cout << L.getValue() << " ";
-    L.next();
-  }
-  cout << "| ";
-  while (L.currPos()<L.length()) {
-    cout << L.getValue() << " ";
-    L.next();
-  }
-  cout << ">\n";
-  L.moveToPos(currpos); // Reset the fence to its original position
+	cout << "< ";
+	int i;
+	for (i = 0; i < currpos; i++) {
+		cout << L.getValue() << " ";
+		L.next();
+	}
+	cout << "| ";
+	while (L.currPos() < L.length()) {
+		cout << L.getValue() << " ";
+		L.next();
+	}
+	cout << ">\n";
+	L.moveToPos(currpos); // Reset the fence to its original position
 }
 
 // find function for Items.
 // Return true if "K" is in list "L", false otherwise
 inline int find(List<Item>& L, int K) {
-  Item it;
-  for (L.moveToStart(); L.currPos()<L.length(); L.next()) {
-    it = L.getValue();
-    if (K == it.key() ) return L.currPos();  // Found K
-  }
-  return -1;                // K not found
+	Item it;
+	for (L.moveToStart(); L.currPos() < L.length(); L.next()) {
+		it = L.getValue();
+		if (K == it.key()) return L.currPos();  // Found K
+	}
+	return -1;                // K not found
 }
 
 // find function for Items.
 // Return true if "item" is in list "L", false otherwise
 inline int find(List<Item>& L, const Item& item_to_search) {
 	Item it;
-	for (L.moveToStart(); L.currPos()<L.length(); L.next()) {
+	for (L.moveToStart(); L.currPos() < L.length(); L.next()) {
 		it = L.getValue();
 		if (item_to_search.key() == it.key()) return L.currPos();  // Found K
 	}
@@ -93,7 +93,7 @@ inline void insert_ordered(List<Item>& L, const Item& it) {
 		L.insert(it);
 		return;
 	}
-	for (L.moveToStart(); L.currPos()<L.length(); L.next()) {
+	for (L.moveToStart(); L.currPos() < L.length(); L.next()) {
 		if (it.key() <= L.getValue().key())
 		{
 			L.insert(it);
