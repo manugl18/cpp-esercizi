@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{e1498508-089d-462c-97e6-cbb2d94f789d}</ProjectGuid>
-    <RootNamespace>Laboratorio7</RootNamespace>
+    <ProjectGuid>{733493ad-4bbc-4ebc-89ff-3d44fb82db55}</ProjectGuid>
+    <RootNamespace>provaparziale1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Aqueue;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Lqueue;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Astack;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Lstack;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Llist;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Alist;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Astack;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Alist;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Llist;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Lstack;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -85,9 +85,6 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <Manifest>
-      <EnableSegmentHeap>true</EnableSegmentHeap>
-    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -103,9 +100,6 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <Manifest>
-      <EnableSegmentHeap>true</EnableSegmentHeap>
-    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -119,9 +113,6 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <Manifest>
-      <EnableSegmentHeap>true</EnableSegmentHeap>
-    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -137,16 +128,15 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <Manifest>
-      <EnableSegmentHeap>true</EnableSegmentHeap>
-    </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\binary_tree2.h" />
-    <ClInclude Include="..\..\..\..\ListTest.h" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\main1.cpp" />
+    <Text Include="bigliettiVenduti.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="fileTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
