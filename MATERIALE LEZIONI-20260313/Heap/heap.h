@@ -1,13 +1,13 @@
 #ifndef HEAP_H
 #define HEAP_H
 
-template <class Item>
-void exch(Item& A, Item& B)
-{
-	Item t = A;
-	A = B;
-	B = t;
-}
+	template <class Item>
+	void exch(Item& A, Item& B)
+	{
+		Item t = A;
+		A = B;
+		B = t;
+	}
 
 // =====================================
 // Array-based Priority Queue
@@ -82,7 +82,7 @@ void fixUp(Item a[], int k)
 }
 
 template <class Item>
-//fa scendere il primo elemento poiche dopo getmax() la rdice e ultimo elemento vengono scambiati
+//fa scendere il primo elemento poiche dopo getmax() la radice e ultimo elemento vengono scambiati
 void fixDown(Item a[], int k, int N)
 {
 	while (2 * k <= N) // figlio sinistro = 2K. Se non esiste un figlio sinistro non ce neanche un figlio destro
