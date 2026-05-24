@@ -1,5 +1,4 @@
-#ifndef BST_H
-#define BST_H
+#pragma once
 
 //#include "symbol_table_item.h"
 
@@ -7,7 +6,8 @@
 using namespace std;
 
 #include <stdlib.h>
-
+#include "llist.h"
+#include "symbol_table_item.h"
 // classe template per la realizzazione di un albero binario di ricerca
 template <class Item, class Key> // ricoda: ANZI CHE KEY si usa o int o string. L'etichetta ITEM non centra nulla con la classe ITEM
 class BST
@@ -26,6 +26,55 @@ private:
 	link head;
 	Item nullItem;
 
+
+	void mergeR(LList<Item>& lista, link a, link b)
+	{
+		// inserisco tutti gli elementi del primo albero
+		for (int i = 0; i < tree_size(a); i++)
+		{
+			lista.append(selectR(a, i));
+		}
+
+		// elaboro il secondo albero
+		for (int j = 0; j < tree_size(b); j++)
+		{
+			Item element = selectR(b, j);
+
+			bool trovato = false;
+
+			// cerco nella lista
+			for (lista.moveToStart();lista.currPos() < lista.length();lista.next())
+			{
+				Item curr = lista.getValue();
+
+				// stessa chiave -> concateno stringhe
+				if (curr.key() == element.key())
+				{
+					Item nuovo(curr.key(),curr.getinfo() + element.getinfo());
+
+					lista.remove();
+					lista.insert(nuovo);
+
+					trovato = true;
+					break;
+				}
+
+				// posizione corretta ordinata
+				if (element.key() < curr.key())
+				{
+					lista.insert(element);
+					trovato = true;
+					break;
+				}
+			}
+
+			// se non inserito, va in fondo
+			if (!trovato)
+			{
+				lista.append(element);
+			}
+		}
+	}
 	// ricerca di un elemento data una chiave in ingresso
 	// restituisce, se presente, il primo elemento trovato nell'albero con la chiave cercata
 	Item searchR(link h, Key v)
@@ -55,6 +104,13 @@ private:
 		showR(h->r, os);
 	}
 
+	void showPostOrder(link h, ostream& os) {
+		if (h == 0) return;
+
+		showPostOrder(h->l, os);
+		showPostOrder(h->r, os);
+		h->item.show(os);
+	}
 	void rotR(link& h)
 	{
 		link x = h->l; h->l = x->r; x->r = h; h = x;
@@ -175,7 +231,9 @@ public:
 		if (!tree) return 0;
 		return 1 + tree_size(tree->r) + tree_size(tree->l);
 	}
-
+	link getRoot() const {
+		return head;
+	}
 	Item search(Key v)
 	{
 		return searchR(head, v);
@@ -187,6 +245,10 @@ public:
 	void show(ostream& os)
 	{
 		showR(head, os);
+	}
+	void show_PO(ostream& os)
+	{
+		showPostOrder(head, os);
 	}
 	void insert_root(Item item)
 	{
@@ -212,6 +274,9 @@ public:
 	{
 		balanceR(head);
 	}
+	void merge(LList<Item> &lista, link b) {
+		mergeR(lista, head, b);
+	}
 
 	/*int tree_height()
 	{
@@ -219,4 +284,3 @@ public:
 	}*/
 };
 
-#endif

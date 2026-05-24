@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 #include <time.h>  // Used by timing functions
-
+#include "llist.h"
 #include <iostream>
 using namespace std;
 
@@ -14,12 +14,20 @@ typedef int Key; // si puo togliere (usare int)
 class Item
 {
 private:
-	float info;
+	string info;
 public:
 	Key keyval;
-	Item() // ogni volta che creo un item se non passo parametri lo inizializza con chiave nulla (da fare)
+	Item()
 	{
 		keyval = maxKey;
+		info = ""; // Buona pratica: inizializza anche info a zero!
+	}
+
+	// 2. IL NUOVO COSTRUTTORE CON PARAMETRI (Aggiunto da te)
+	Item(Key k, string i)
+	{
+		keyval = k;
+		info = i;
 	}
 	Key key() const
 	{
@@ -30,12 +38,6 @@ public:
 		return keyval == maxKey;
 	}
 
-	// genera casualmente i dati (chiave, valore) di un elemento
-	void random_element()
-	{
-		keyval = 1000 * (1.0 * rand() / RAND_MAX);
-		info = 1.0 * (1.0 * rand() / RAND_MAX);
-	}
 
 	// legge da tastiera i dati (chiave, valore) di un elemento
 	int scan(istream& is = cin)
@@ -48,12 +50,37 @@ public:
 		os << keyval << " " << info << endl;
 	}
 
-	float getinfo() const { return info; }
+	string getinfo() const { return info; }
 };
-
+void Assert(bool val, std::string s) {
+	if (!val) { // Se il controllo fallisce (es. lista vuota)
+		std::cout << "Errore critico (Assertion Failed): " << s << std::endl;
+		exit(-1); // Blocca il programma
+	}
+}
 inline ostream& operator<<(ostream& os, const Item& i)
 {
 	return os << "(" << i.key() << " " << i.getinfo() << ")";
+}
+template <typename E>
+void lprint(LList<E>& L) {
+	int currpos = L.currPos();
+
+	L.moveToStart();
+
+	cout << "< ";
+	int i;
+	for (i = 0; i < currpos; i++) {
+		cout << L.getValue() << " ";
+		L.next();
+	}
+	cout << "| ";
+	while (L.currPos() < L.length()) {
+		cout << L.getValue() << " ";
+		L.next();
+	}
+	cout << ">\n";
+	L.moveToPos(currpos); // Reset the fence to its original position
 }
 
 
