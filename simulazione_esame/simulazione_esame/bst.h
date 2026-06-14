@@ -99,9 +99,9 @@ private:
 	{
 		if (h == 0) return;
 
-		h->item.show(os);
 		showR(h->l, os);
 		showR(h->r, os);
+		h->item.show(os);
 	}
 
 	void showPostOrder(link h, ostream& os) {
@@ -115,7 +115,7 @@ private:
 		showPostOrder(h->l, os);
 		h->item.show(os);
 		showPostOrder(h->r, os);
-		
+
 	}
 	void rotR(link& h)
 	{
@@ -232,7 +232,15 @@ public:
 	{
 		head = 0;
 	}
+	void modifica_valori() {
+		head->item.setNome("*" + head->item.getNome());
 
+		link temp = head;
+		while (temp->r != NULL)
+			temp = temp->r;
+
+		temp->item.setNome("***" + temp->item.getNome());
+	}
 	int tree_size(link tree) {
 		if (!tree) return 0;
 		return 1 + tree_size(tree->r) + tree_size(tree->l);

@@ -17,34 +17,34 @@
 // Simple program to test graph construction:
 // Version for Adjancency List representation
 int main(int argc, char** argv) {
-  Graph* G;
+	Graph* G;
 
-  if (argc != 2) {
-    cout << "Usage: grtestl <file>\n";
-    exit(-1);
-  }
+	if (argc != 2) {
+		cout << "Usage: grtestl <file>\n";
+		exit(-1);
+	}
 
-  string line;
-  ifstream myfile(argv[1]);
+	string line;
+	ifstream myfile(argv[1]);
 
-  G = createGraph<Graphl>(myfile);
-  if (G == NULL) {
-    cout << "Unable to create graph\n";
-    exit(-1);
-  }
+	G = createGraph<Graphl>(myfile);
+	if (G == NULL) {
+		cout << "Unable to create graph\n";
+		exit(-1);
+	}
 
-  Gprint(G);
+	Gprint(G);
 
-  cout << "next(1, 4)=" << G->next(1, 4) << endl;
-  cout << "first(5)=" << G->first(5) << endl;
-  cout << "next(1, 5)=" << G->next(1, 5) << endl;
-  cout << "next(1, 2)=" << G->next(1, 2) << endl;
-  cout << "next(0, 2)=" << G->next(0, 2) << endl;
-  G->setEdge(1, 4, 5);
-  Gprint(G);
-  G->delEdge(1, 4);
-  Gprint(G);
-  cout << "Number of vertices is " << G->n() << "\n";
-  cout << "Number of edges is " << G->e() << "\n";
-  return 0;
+	cout << "next(1, 4)=" << G->next(1, 4) << endl;
+	cout << "first(5)=" << G->first(5) << endl;
+	cout << "next(1, 5)=" << G->next(1, 5) << endl;
+	cout << "next(1, 2)=" << G->next(1, 2) << endl;
+	cout << "next(0, 2)=" << G->next(0, 2) << endl;
+	G->setEdge(1, 4, 5);
+	Gprint(G);
+	G->delEdge(1, 4);
+	Gprint(G);
+	cout << "Number of vertices is " << G->n() << "\n";
+	cout << "Number of edges is " << G->e() << "\n";
+	return 0;
 }
