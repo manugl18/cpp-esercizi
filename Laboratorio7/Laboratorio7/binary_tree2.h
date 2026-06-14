@@ -5,7 +5,7 @@
 using namespace std;
 
 #include "lstack.h"
-#include "listTest.h"
+#include "ListTest.h"
 #include "lqueue.h"
 
 // class Node
@@ -107,11 +107,20 @@ private:
 		int m = (l + r) / 2;
 		Node<T>* x = new Node<T>(a[m]);
 		if (l == r) return x;
+
 		x->lChildptr = max(a, l, m);
 		x->rChildptr = max(a, m + 1, r);
-		int u = x->lChildptr->data.key(), v = x->rChildptr->data.key();
+
+		// CORREZIONE: u e v ora sono dello stesso tipo T (es. Item), non interi a caso!
+		T u = x->lChildptr->data;
+		T v = x->rChildptr->data;
+
+		// Usa l'operatore > per decidere chi vince il "torneo"
 		if (u > v)
-			x->data = u; else x->data = v;
+			x->data = u;
+		else
+			x->data = v;
+
 		return x;
 	}
 	int equal_structure(Node<T>* theRootA, Node<T>* theRootB) {
@@ -122,7 +131,7 @@ private:
 	int equal(Node<T>* theRootA, Node<T>* theRootB) {
 		if (theRootA == NULL && theRootB == NULL) return true;
 		else if (theRootA == NULL || theRootB == NULL) return false;
-		else if (!(theRootA->data.getString() == theRootB->data.getString())) return false;
+		else if (!(theRootA->data == theRootB->data)) return false;
 		else  return equal(theRootA->lChildptr, theRootB->lChildptr) && equal(theRootA->rChildptr, theRootB->rChildptr);
 	}
 	void destroy_tree(Node<T>* theRoot) {

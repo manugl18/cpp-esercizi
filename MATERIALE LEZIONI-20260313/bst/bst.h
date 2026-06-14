@@ -43,14 +43,14 @@ private:
 			bool trovato = false;
 
 			// cerco nella lista
-			for (lista.moveToStart();lista.currPos() < lista.length();lista.next())
+			for (lista.moveToStart(); lista.currPos() < lista.length(); lista.next())
 			{
 				Item curr = lista.getValue();
 
 				// stessa chiave -> concateno stringhe
 				if (curr.key() == element.key())
 				{
-					Item nuovo(curr.key(),curr.getinfo() + element.getinfo());
+					Item nuovo(curr.key(), curr.getinfo() + element.getinfo());
 
 					lista.remove();
 					lista.insert(nuovo);
@@ -106,10 +106,16 @@ private:
 
 	void showPostOrder(link h, ostream& os) {
 		if (h == 0) return;
-
 		showPostOrder(h->l, os);
 		showPostOrder(h->r, os);
 		h->item.show(os);
+	}
+	void showInOrder(link h, ostream& os) {
+		if (h == 0) return;
+		showPostOrder(h->l, os);
+		h->item.show(os);
+		showPostOrder(h->r, os);
+		
 	}
 	void rotR(link& h)
 	{
@@ -250,6 +256,10 @@ public:
 	{
 		showPostOrder(head, os);
 	}
+	void show_IN(ostream& os)
+	{
+		showInOrder(head, os);
+	}
 	void insert_root(Item item)
 	{
 		insert_rootR(head, item);
@@ -274,7 +284,7 @@ public:
 	{
 		balanceR(head);
 	}
-	void merge(LList<Item> &lista, link b) {
+	void merge(LList<Item>& lista, link b) {
 		mergeR(lista, head, b);
 	}
 

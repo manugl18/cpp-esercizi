@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d1450aa8-0fb7-4da1-8cd7-fc9da3b73cb5}</ProjectGuid>
-    <RootNamespace>Laboratorio9</RootNamespace>
+    <ProjectGuid>{18a207b0-eb17-4dc0-904b-346952ee25b7}</ProjectGuid>
+    <RootNamespace>STL</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -70,9 +70,6 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Llist;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\Alist;C:\Users\manue\Desktop\UNI\C++\MATERIALE LEZIONI-20260313\bst;$(IncludePath)</IncludePath>
-  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -142,16 +139,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="info.dat" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="telefoni.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="classi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

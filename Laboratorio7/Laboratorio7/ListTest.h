@@ -14,18 +14,25 @@ public:
 		this->s = s;
 	}
 
-	string getString() const { return s; }
+	string key() const { return s; }
 
 	bool operator<(const Item& other) const {
-		if (this->s < other.getString()) return true;
-		else return false;
+		if (this->s < other.key()) return true;
 	}
+	bool operator>(const Item& other) const {
+		if (this->s > other.key()) return true;
+	}
+	// Aggiungi questo sotto l'operatore <
+	bool operator==(const Item& other) const {
+		return this->s == other.key();
+	}
+
 };
 
 // Let us print out Items easily
 inline ostream& operator<<(ostream& s, const Item& i)
 {
-	return s << i.getString();
+	return s << i.key();
 }
 
 // Assert: If "val" is false, print a message and terminate

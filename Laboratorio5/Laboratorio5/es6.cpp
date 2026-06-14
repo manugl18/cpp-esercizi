@@ -18,7 +18,7 @@ int main() {
 		cin >> n;
 		coda.enqueue(Item(n));
 	}
-	// RICORDA BENE: Nelle CODE, l'ultimo elemento che inseriamo va IN FONDO ALLA CODA.
+	// RICORDA BENE: Nelle CODE, l'ultimo elemento che inseriamo va IN FONDO ALLA CODA. (FIFO)
 	int cnt = 0;
 	while (coda.length() > 1) {
 		int l = coda.length();
